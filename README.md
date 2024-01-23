@@ -47,22 +47,31 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 
-#INITIAL CONFIG.
-1) Create .env with:
+##INITIAL CONFIG.
+#1) Create .env with:
 
-DB_HOST= [YOUR_HOST]
-DB_PORT=[DB_PORT]
-DB_USER=[USER]
-DB_PASSWORD=[PASS]
-DB_NAME=[DATABASER_NAME]
+#DB_HOST= [YOUR_HOST]
+#DB_PORT=[DB_PORT]
+#DB_USER=[USER]
+#DB_PASSWORD=[PASS]
+#DB_NAME=[DATABASER_NAME]
 
-APP_PORT=3000
-DEBUG_MODE=true
+#APP_PORT=3000
+#DEBUG_MODE=true
 
-JWT_SECRET=[JWT_SECRET]
-API_KEY=[API_KEY]
+#JWT_SECRET=[JWT_SECRET]
+#API_KEY=[API_KEY]
 
-
+##Depndencies
+#npm i @nestjs/typeorm
+#npm i typeorm
+#npm install --save @nestjs/jwt
+#npm install mysql --save
+#npm i --save class-validator class-transformer
+#npm i bcrypt
+#npm i -D @types/bcrypt
+#npm install dotenv
+#npm i @nestjs/mapped-types
 
 
 
