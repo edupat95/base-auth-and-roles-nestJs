@@ -6,8 +6,6 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth/guard/auth.guard';
-import { DocumentoModule } from './documento/documento.module';
-import { MembersModule } from './members/members.module';
 import { RolesModule } from './roles/roles.module';
 import * as dotenv from 'dotenv';
 
@@ -29,8 +27,6 @@ dotenv.config();
   
     UsersModule,
     AuthModule,
-    DocumentoModule,
-    MembersModule,
     RolesModule
   ],
   controllers: [AppController],
