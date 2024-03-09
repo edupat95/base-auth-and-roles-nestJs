@@ -11,10 +11,12 @@ import { Reflector } from '@nestjs/core';
 import { IS_PUBLIC_KEY } from 'src/public.decorator';
 import { Role } from 'src/roles/entities/role.entity';
 
-
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private jwtService: JwtService, private reflector: Reflector) {}
+  constructor(
+    private jwtService: JwtService,
+    private reflector: Reflector,
+  ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     //SI LA RUTA ES PUBLICA CONTINUA YA QUE NO NECESITA AUTENTICACION

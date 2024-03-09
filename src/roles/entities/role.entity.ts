@@ -1,27 +1,32 @@
-import { Delete } from '@nestjs/common';
-
-import { Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn } from 'typeorm';
-
-import { ManyToMany, JoinTable } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  DeleteDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class Role {
-    @PrimaryGeneratedColumn()
-    id: number;
-    
-    @Column({ length: 100 })
-    name: string;
-    
-    @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
-    createdAt: Date;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({type: "timestamp", default: () => "CURRENT_TIMESTAMP", onUpdate: "CURRENT_TIMESTAMP" })
-    updatedAt: Date;
+  @Column({ length: 100 })
+  name: string;
 
-    @DeleteDateColumn()
-    deletedAt: Date;
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
 
-    constructor(props: Partial<Role>) {
-        Object.assign(this, props);
-    }
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+  })
+  updatedAt: Date;
+
+  @DeleteDateColumn()
+  deletedAt: Date;
+
+  constructor(props: Partial<Role>) {
+    Object.assign(this, props);
+  }
 }

@@ -6,15 +6,15 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   //CONFIGURACION INICIAL
-  try{
-    if(await initConfig(app)){
+  try {
+    if (await initConfig(app)) {
       console.log('Initial configuration completed successfully');
     }
-  } catch(error){
+  } catch (error) {
     console.error(error);
   }
   //FIN CONFIGURACION INICIAL
-
+  app.enableCors();
   await app.listen(3000);
 }
 bootstrap();

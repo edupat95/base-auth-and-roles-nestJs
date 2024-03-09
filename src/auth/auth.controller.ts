@@ -5,8 +5,6 @@ import {
   HttpCode,
   HttpStatus,
   Post,
-  Req,
-  UseGuards
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { SingUpDto } from './dto/sing-up.dto';
@@ -15,13 +13,10 @@ import { Public } from 'src/public.decorator';
 import { Auth } from './decorators/auth.decorator';
 import { ActiveUser } from 'src/common/decorators/active-user.decorator';
 import { UserActiveIterface } from 'src/common/interfaces/ative-user.interface';
-import { Role } from 'src/roles/entities/role.entity';
-
 
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
-
 
   @HttpCode(HttpStatus.OK)
   @Public()
