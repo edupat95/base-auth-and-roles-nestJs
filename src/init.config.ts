@@ -7,21 +7,20 @@ import { RolesService } from './roles/roles.service';
 import { UsersService } from './users/users.service';
 
 export const initConfig = async (app) => {
-
   // Obtén una instancia del servicio RoleService
   const roleService = app.get(RolesService);
   // Ejecuta la función createDefaultRoles (admin and user)
   await roleService.createDefaultRoles();
 
   const roleAdmin = await roleService.findByName('admin');
-  if(!roleAdmin){
+  if (!roleAdmin) {
     console.error('Rol admin dont exist. You must create it before continue.');
   }
   // crear usuario admin admin por defecto
   const userService = app.get(UsersService);
   const userAdmin = await userService.findOneByUsername('admin');
-  
-  if(!userAdmin){
+
+  if (!userAdmin) {
     const adminUser = new User();
     adminUser.username = 'admin';
     adminUser.password = 'admin';
@@ -34,4 +33,4 @@ export const initConfig = async (app) => {
   }
 
   return true;
-}
+};

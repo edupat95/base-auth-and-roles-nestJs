@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { initConfig } from './init.config';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -14,7 +15,12 @@ async function bootstrap() {
     console.error(error);
   }
   //FIN CONFIGURACION INICIAL
-  app.enableCors();
+  app.enableCors(); // habilita los cors
+  app.useGlobalPipes(new ValidationPipe(
+    {
+      transform: true,
+    }
+  )); // habilita la validacion de los DTO
   await app.listen(3000);
 }
 bootstrap();

@@ -1,10 +1,13 @@
-import { IsString, MinLength, MaxLength, IsEmpty, IsNotEmpty } from 'class-validator';
-import { Transform } from 'class-transformer';
+import { IsString, IsNotEmpty, MinLength } from 'class-validator';
 
 export class SingInDto {
+
     @IsNotEmpty()
+    @IsString()
+    @MinLength(6)
     username: string;
 
     @IsNotEmpty()
     password: string;
+
 }

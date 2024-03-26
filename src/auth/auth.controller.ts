@@ -18,10 +18,10 @@ import { UserActiveIterface } from 'src/common/interfaces/ative-user.interface';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  @HttpCode(HttpStatus.OK)
   @Public()
   @Post('login')
   signIn(@Body() signInDto: SingInDto) {
+    console.log('signInDto', signInDto);
     return this.authService.signIn(signInDto);
   }
 

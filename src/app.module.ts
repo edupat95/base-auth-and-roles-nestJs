@@ -1,14 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm'
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth/guard/auth.guard';
 import { RolesModule } from './roles/roles.module';
 import * as dotenv from 'dotenv';
-
 
 dotenv.config();
 
@@ -24,10 +23,10 @@ dotenv.config();
       entities: [__dirname + '/**/*.entity{.ts,.js}'], // Dentro de la raiz del proyecto "__dirname" busca todos los archivos que terminen en .entity.ts o .entity.js
       synchronize: true, // Sincroniza la base de datos con el modelo de datos. En produccion deberia utilizar migraciones
     }),
-  
+
     UsersModule,
     AuthModule,
-    RolesModule
+    RolesModule,
   ],
   controllers: [AppController],
   providers: [
